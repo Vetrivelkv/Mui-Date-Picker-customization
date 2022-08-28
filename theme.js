@@ -25,16 +25,6 @@ const reportsDatePickerTheme = createTheme({
         dayWithMargin: {
           color: 'black', // calendar date number colors.
         },
-        disabled: {
-          color: 'red',
-        },
-      },
-    },
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: 'red',
-        },
       },
     },
 

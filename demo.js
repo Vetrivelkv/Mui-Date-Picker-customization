@@ -46,7 +46,7 @@ function MaterialUIPickers() {
             minDate={new Date()}
             value={value}
             DialogProps={{
-              // className: 'whiteThemeDatePicker',              
+              className: 'whiteThemeDatePicker',
               dialogContentClasses: root,
             }}
             toolbarTitle={<div>&nbsp;</div>}
