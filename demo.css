@@ -1,0 +1,15 @@
+.MuiDateTimePickerToolbar-dateContainer .MuiTypography-root {
+  color: white;
+}
+
+.MuiDateTimePickerToolbar-timeContainer .MuiTypography-root {
+  color: white;
+}
+
+.MuiDateTimePickerToolbar-dateContainer .MuiTypography-root.Mui-selected {
+  color: blanchedalmond;
+}
+
+.whiteThemeDatePicker {
+  color: aqua;
+}

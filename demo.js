@@ -10,44 +10,53 @@ import {
   createTheme,
 } from '@mui/material/styles';
 import theme from './theme';
-import { MobileDatePicker, MobileDateTimePicker } from '@mui/x-date-pickers';
+import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
+import { makeStyles } from '@mui/styles';
+import './demo.css';
 
-const popperSx = {
-  // '& .MuiPaper-root': {
-  //   backgroundColor: 'rgba(120, 120, 120, 0.2)',
-  // },
-  // '& .MuiCalendarPicker-root': {
-  //   backgroundColor: 'rgba(45, 85, 255, 0.4)',
-  // },
-  '& .MuiPickersDay-dayWithMargin': {
-    // color: 'black',
-    // backgroundColor: 'rgba(50, 136, 153)',
-  },
-  // '& .MuiTabs-root': { backgroundColor: 'rgba(120, 120, 120, 0.4)' },
-};
+const useStyles = makeStyles({
+  root: {
+    MuiDateTimePickerToolbar: {
+      color: 'red',
+    },
+  }, // a style rule
+  label: {}, // a nested style rule
+});
 
-export default function MaterialUIPickers() {
+function MaterialUIPickers() {
   const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+  const classes = useStyles();
 
   const handleChange = (newValue) => {
     setValue(newValue);
+  };
+
+  const root = {
+    '&MuiDateTimePickerToolbar-dateContainer &MuiTypography-root': {
+      color: 'red',
+    },
   };
 
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <Stack spacing={3}>
-            <MobileDateTimePicker
-              label="Date mobile"
-              value={value}
-              DialogProps={{ sx: popperSx }}
-              onChange={handleChange}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </Stack>
+          <MobileDateTimePicker
+            label="Date mobile"
+            minDate={new Date()}
+            value={value}
+            DialogProps={{
+              // className: 'whiteThemeDatePicker',              
+              dialogContentClasses: root,
+            }}
+            toolbarTitle={<div>&nbsp;</div>}
+            onChange={handleChange}
+            renderInput={(params) => <TextField {...params} />}
+          />
         </LocalizationProvider>
       </ThemeProvider>
     </StyledEngineProvider>
   );
 }
+
+export default MaterialUIPickers;

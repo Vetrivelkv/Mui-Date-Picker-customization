@@ -9,13 +9,30 @@ const reportsDatePickerTheme = createTheme({
           backgroundColor: '#4eb5f3',
         },
         dateContainer: {
-          color: 'white',
+          color: 'red',
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          color: 'black', // month picker color
         },
       },
     },
     MuiPickersDay: {
       styleOverrides: {
         dayWithMargin: {
+          color: 'black', // calendar date number colors.
+        },
+        disabled: {
+          color: 'red',
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
           color: 'red',
         },
       },
@@ -28,9 +45,10 @@ const reportsDatePickerTheme = createTheme({
         },
         indicator: {
           border: '1px solid #88134A',
+          backgroundColor: '#88134A',
         },
       },
-    },
+    }, // tab indicators and background color
   },
 });
 
